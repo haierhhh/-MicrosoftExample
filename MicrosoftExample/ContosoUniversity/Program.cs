@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ContosoUniversity.Data;
+using ContosoUniversity.Properties.Data;
 namespace ContosoUniversity
 {
     public class Program
