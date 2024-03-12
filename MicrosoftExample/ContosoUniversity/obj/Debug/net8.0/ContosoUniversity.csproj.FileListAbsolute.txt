@@ -255,7 +255,6 @@ E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8
 E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\scopedcss\bundle\ContosoUniversity.styles.css
 E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\scopedcss\projectbundle\ContosoUniversity.bundle.scp.css
-E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\ContosoUniversity.csproj.CopyComplete
 E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\ContosoUniversity.dll
 E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\refint\ContosoUniversity.dll
 E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\ContosoUniversity.pdb
@@ -524,3 +523,4 @@ E:\gitRestory\MicrosoftExample2\-MicrosoftExample\MicrosoftExample\ContosoUniver
 E:\gitRestory\MicrosoftExample2\-MicrosoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\ContosoUniversity.pdb
 E:\gitRestory\MicrosoftExample2\-MicrosoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\ContosoUniversity.genruntimeconfig.cache
 E:\gitRestory\MicrosoftExample2\-MicrosoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\ref\ContosoUniversity.dll
+E:\gitRestory\microsoftExample\MicrosoftExample\ContosoUniversity\obj\Debug\net8.0\ContosoU.2F40B0B5.Up2Date

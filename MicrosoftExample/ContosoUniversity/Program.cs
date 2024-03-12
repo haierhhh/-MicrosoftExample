@@ -34,7 +34,7 @@ namespace ContosoUniversity
             {
                 var services = scope.ServiceProvider;
                 var context=services.GetRequiredService<SchoolContext>();
-                //context.Database.EnsureCreated();  //前期开发用的，判断是否有数据库来创建数据库。由于不会生成迁移记录，不适合需要保存数据的后期开发。
+                context.Database.EnsureCreated();  //前期开发用的，判断是否有数据库来创建数据库。由于不会生成迁移记录，不适合需要保存数据的后期开发。
                 DbInitializer.Initialize(context);
             }
 
