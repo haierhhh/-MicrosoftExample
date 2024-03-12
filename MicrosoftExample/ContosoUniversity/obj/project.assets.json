@@ -8211,24 +8211,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\haier\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\haier\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\gitRestory\\MicrosoftExample2\\-MicrosoftExample\\MicrosoftExample\\ContosoUniversity\\ContosoUniversity.csproj",
+      "projectUniqueName": "E:\\gitRestory\\microsoftExample\\MicrosoftExample\\ContosoUniversity\\ContosoUniversity.csproj",
       "projectName": "ContosoUniversity",
-      "projectPath": "E:\\gitRestory\\MicrosoftExample2\\-MicrosoftExample\\MicrosoftExample\\ContosoUniversity\\ContosoUniversity.csproj",
+      "projectPath": "E:\\gitRestory\\microsoftExample\\MicrosoftExample\\ContosoUniversity\\ContosoUniversity.csproj",
       "packagesPath": "C:\\Users\\haier\\.nuget\\packages\\",
-      "outputPath": "E:\\gitRestory\\MicrosoftExample2\\-MicrosoftExample\\MicrosoftExample\\ContosoUniversity\\obj\\",
+      "outputPath": "E:\\gitRestory\\microsoftExample\\MicrosoftExample\\ContosoUniversity\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\haier\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8236,7 +8231,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
