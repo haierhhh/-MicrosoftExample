@@ -25,6 +25,7 @@ namespace ContosoUniversity.Data
             modelBuilder.Entity<Course>().ToTable(nameof(Course));
             modelBuilder.Entity<Enrollment>().ToTable(nameof(Enrollment));
             modelBuilder.Entity<Student>().ToTable(nameof(Student));
+            
         }
     }
 }
