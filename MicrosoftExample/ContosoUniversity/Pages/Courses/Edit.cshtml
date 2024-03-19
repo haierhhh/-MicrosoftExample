@@ -13,21 +13,23 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Course.CourseID" />
+            <input type="hidden" asp-for="CourseVM.CourseID" />
+            <input type="hidden" asp-for="CourseVM.DepartmentName" />
             <div class="form-group">
-                <label asp-for="Course.Title" class="control-label"></label>
-                <input asp-for="Course.Title" class="form-control" />
-                <span asp-validation-for="Course.Title" class="text-danger"></span>
+                <label asp-for="CourseVM.Title" class="control-label"></label>
+                <input asp-for="CourseVM.Title" class="form-control" />
+                <span asp-validation-for="CourseVM.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Course.Credits" class="control-label"></label>
-                <input asp-for="Course.Credits" class="form-control" />
-                <span asp-validation-for="Course.Credits" class="text-danger"></span>
+                <label asp-for="CourseVM.Credits" class="control-label"></label>
+                <input asp-for="CourseVM.Credits" class="form-control" />
+                <span asp-validation-for="CourseVM.Credits" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Course.DepartmentID" class="control-label"></label>
-                <select asp-for="Course.DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
-                <span asp-validation-for="Course.DepartmentID" class="text-danger"></span>
+                <label asp-for="CourseVM.DepartmentName" class="control-label"></label>
+                <select asp-for="CourseVM.DepartmentID" class="form-control" asp-items="@Model.DepartmentNameSL"></select>
+                <span asp-validation-for="CourseVM.DepartmentID" class="text-danger"></span>
+                
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

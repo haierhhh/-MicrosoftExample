@@ -6,5 +6,7 @@
         public string Title { get; set; }
         public int Credits { get; set; }
         public string DepartmentName { get; set; }
+
+        public int DepartmentID { get; set;}
     }
 }

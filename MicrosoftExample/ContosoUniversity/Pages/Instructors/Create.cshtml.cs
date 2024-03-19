@@ -7,38 +7,82 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ContosoUniversity.Models;
 using ContosoUniversity.Properties.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContosoUniversity.Pages.Instructors
 {
-    public class CreateModel : PageModel
+    public class CreateModel : InstructorCoursesPageModel
     {
         private readonly ContosoUniversity.Properties.Data.SchoolContext _context;
+        private readonly ILogger<InstructorCoursesPageModel> _logger;
 
-        public CreateModel(ContosoUniversity.Properties.Data.SchoolContext context)
+        public CreateModel(ContosoUniversity.Properties.Data.SchoolContext context,ILogger<InstructorCoursesPageModel> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public IActionResult OnGet()
         {
+            var instructor = new Instructor();
+            instructor.Courses= new List<Course>();
+            PopulateAssignedCourseData(_context,instructor);
             return Page();
         }
 
         [BindProperty]
-        public Instructor Instructor { get; set; } = default!;
+        public InstructorVM InstructorVM { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string[] selectedCourses)
         {
-            if (!ModelState.IsValid)
+           var newInstructor = new Instructor();
+            if (selectedCourses.Length > 0)
             {
-                return Page();
+                newInstructor.Courses = new List<Course>();
+
+                _context.Courses.Load();
             }
 
-            _context.Instructors.Add(Instructor);
-            await _context.SaveChangesAsync();
+            foreach (var course in selectedCourses)
+            {
+                var foundCourse = await _context.Courses.FindAsync(int.Parse(course));
+                if (foundCourse != null)
+                {
+                    newInstructor.Courses.Add(foundCourse);
+                }
+                else
+                {
+                    _logger.LogWarning("课程{course}没找到", course);
+                }
+            }
 
-            return RedirectToPage("./Index");
+            try
+            {
+                if (await TryUpdateModelAsync<InstructorVM>(
+                    InstructorVM,
+                    "InstructorVM",
+                    i => i.FirstMidName, i => i.LastName,
+                                i => i.HireDate, i => i.OfficeAssignmentLocation))
+                {
+                    newInstructor.FirstMidName=InstructorVM.FirstMidName;
+                    newInstructor.LastName=InstructorVM.LastName;
+                    newInstructor.HireDate=InstructorVM.HireDate;
+                    newInstructor.OfficeAssignment = new OfficeAssignment { Instructor=newInstructor, Location=InstructorVM.OfficeAssignmentLocation };
+                    _context.Instructors.Add(newInstructor);
+                    await _context.SaveChangesAsync();
+                    return RedirectToPage("./Index");
+                }
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError(ex.Message);
+            }
+
+            PopulateAssignedCourseData(_context,newInstructor);
+            return Page();
         }
     }
 }

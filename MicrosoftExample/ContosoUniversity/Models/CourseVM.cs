@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-    public class Course
+    public class CourseVM
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name ="Number")]
@@ -14,9 +14,5 @@ namespace ContosoUniversity.Models
         public int Credits { get; set; }
 
         public int DepartmentID { get; set; }
-        public Department Department { get; set; }
-        public ICollection<Enrollment> Enrollments { get; set; }
-
-        public ICollection<Instructor> Instructors { get; set; }
     }
 }
