@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-
-    public class Instructor
+    public class InstructorVM
     {
         public int ID { get; set; }
         [Required]
@@ -14,7 +12,6 @@ namespace ContosoUniversity.Models
         public string LastName { get; set; }
 
         [Required]
-        [Column("First Name")]
         [Display(Name = "First Name")]
         [StringLength(50)]
         public string FirstMidName { get; set; }
@@ -26,8 +23,8 @@ namespace ContosoUniversity.Models
 
         [Display(Name = "Full Name")]
         public string FullName { get { return LastName + ", " + FirstMidName; } }
+        //public OfficeAssignment OfficeAssignment { get; set; }
 
-        public ICollection<Course> Courses { get; set; }
-        public OfficeAssignment OfficeAssignment { get; set; }
+        public string OfficeAssignmentLocation { get; set; }
     }
 }

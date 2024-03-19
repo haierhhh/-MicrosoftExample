@@ -1,5 +1,8 @@
-﻿namespace ContosoUniversity.Models
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ContosoUniversity.Models
 {
+    [Bind("LastName,FirstMidName,EnrollmentDate")]
     public class StudentVM
     {
         public int ID { get; set; }

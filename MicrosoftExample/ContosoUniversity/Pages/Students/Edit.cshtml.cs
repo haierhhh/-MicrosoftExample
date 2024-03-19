@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Models;
 using ContosoUniversity.Properties.Data;
+using System.Diagnostics;
 
 namespace ContosoUniversity.Pages.Students
 {
@@ -21,7 +22,7 @@ namespace ContosoUniversity.Pages.Students
         }
 
         [BindProperty]
-        public Student Student { get; set; } 
+        public StudentVM StudentVM { get; set; } 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,13 +31,16 @@ namespace ContosoUniversity.Pages.Students
                 return NotFound();
             }
 
-            var student =  await _context.Students.FindAsync(id);
+            var student = await _context.Students
+                .Select(s => new StudentVM { ID = s.ID, LastName = s.LastName, FirstMidName = s.FirstMidName, EnrollmentDate = s.EnrollmentDate })
+                .FirstOrDefaultAsync(m => m.ID == id);
             //var student =  await _context.Students.FindAsync(m => m.ID == id);
             if (student == null)
             {
                 return NotFound();
             }
-            Student = student;
+
+            StudentVM=student;
             return Page();
         }
 
@@ -78,14 +82,23 @@ namespace ContosoUniversity.Pages.Students
                 return NotFound();
             }
 
-            if(await TryUpdateModelAsync<Student>(
-                studentToUpdate,
-                "student",
-                s=>s.FirstMidName,s=>s.LastName,s=>s.EnrollmentDate
+            if(await TryUpdateModelAsync<StudentVM>(
+                StudentVM,
+                "StudentVM",
+                s=>s.LastName,s=>s.FirstMidName,s=>s.EnrollmentDate
                 ))
             {
+                studentToUpdate.LastName = StudentVM.LastName;
+                studentToUpdate.FirstMidName = StudentVM.FirstMidName;
+                studentToUpdate.EnrollmentDate = StudentVM.EnrollmentDate;
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
+                //foreach (var modelstate in ViewData.ModelState.Values)
+                //{
+                //    foreach(var error in modelstate.Errors) {
+                //        Debug.WriteLine(error.ErrorMessage);
+                //    }
+                //}
             }
 
             return Page();
