@@ -31,7 +31,7 @@ namespace ContosoUniversity.Properties.Data
             //modelBuilder.Entity<Enrollment>().ToTable(nameof(Enrollment));
             modelBuilder.Entity<Student>().ToTable(nameof(Student));
             modelBuilder.Entity<Instructor>().ToTable(nameof(Instructor));
-            //modelBuilder.Entity<Department>()
+            //modelBuilder.Entity<Departments>()
             //    .HasOne(d=>d.Administrator)
             //    .WithMany()
             //    .OnDelete(DeleteBehavior.Restrict);
