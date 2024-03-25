@@ -22,7 +22,10 @@ namespace ContosoUniversity.Properties.Data
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
 
+        public DbSet<Person> People { get; set; }
+
         public DbSet<CourseAssignment> CourseAssignments { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +35,9 @@ namespace ContosoUniversity.Properties.Data
             modelBuilder.Entity<Enrollment>().ToTable(nameof(Enrollment));
             modelBuilder.Entity<Student>().ToTable(nameof(Student));
             modelBuilder.Entity<Instructor>().ToTable(nameof(Instructor));
+
+            modelBuilder.Entity<Person>().ToTable(nameof(Person));
+            //modelBuilder.Entity<Department>()
             modelBuilder.Entity<Department>().ToTable(nameof(Department));
             modelBuilder.Entity<OfficeAssignment>().ToTable(nameof(OfficeAssignment));
             modelBuilder.Entity<CourseAssignment>().ToTable(nameof(CourseAssignment));

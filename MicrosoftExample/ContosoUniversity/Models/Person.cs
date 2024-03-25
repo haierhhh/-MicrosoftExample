@@ -7,15 +7,14 @@ namespace ContosoUniversity.Models
     {
 
         public int ID { get; set; }
-        [Required]
-        [Display(Name = "Last Name")]
-        [StringLength(50)]
-        public string LastName { get; set; }
 
         [Required]
-        [Column("First Name")]
-        [Display(Name = "First Name")]
         [StringLength(50)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        [Required]
+        [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
+        [Column("FirstName")]       
         public string FirstMidName { get; set; }
 
         [Display(Name = "Full Name")]
