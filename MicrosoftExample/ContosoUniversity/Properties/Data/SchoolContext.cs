@@ -37,7 +37,8 @@ namespace ContosoUniversity.Properties.Data
             modelBuilder.Entity<CourseAssignment>().ToTable(nameof(CourseAssignment));
             modelBuilder.Entity<CourseAssignment>()
                 .HasKey(c=>new { c.CourseID,c.InstructorID});
-            //modelBuilder.Entity<Department>()
+
+            //modelBuilder.Entity<Departments>()
             //    .HasOne(d=>d.Administrator)
             //    .WithMany()
             //    .OnDelete(DeleteBehavior.Restrict);
