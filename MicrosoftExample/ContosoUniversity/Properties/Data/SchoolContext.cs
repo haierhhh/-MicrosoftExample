@@ -22,15 +22,22 @@ namespace ContosoUniversity.Properties.Data
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
 
+        public DbSet<CourseAssignment> CourseAssignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().ToTable(nameof(Course))
                 .HasMany(c=>c.Instructors)
                 .WithMany(i=>i.Courses);
-            //modelBuilder.Entity<Enrollment>().ToTable(nameof(Enrollment));
+            modelBuilder.Entity<Enrollment>().ToTable(nameof(Enrollment));
             modelBuilder.Entity<Student>().ToTable(nameof(Student));
             modelBuilder.Entity<Instructor>().ToTable(nameof(Instructor));
+            modelBuilder.Entity<Department>().ToTable(nameof(Department));
+            modelBuilder.Entity<OfficeAssignment>().ToTable(nameof(OfficeAssignment));
+            modelBuilder.Entity<CourseAssignment>().ToTable(nameof(CourseAssignment));
+            modelBuilder.Entity<CourseAssignment>()
+                .HasKey(c=>new { c.CourseID,c.InstructorID});
+
             //modelBuilder.Entity<Departments>()
             //    .HasOne(d=>d.Administrator)
             //    .WithMany()
