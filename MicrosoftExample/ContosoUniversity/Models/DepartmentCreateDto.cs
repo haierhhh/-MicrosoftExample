@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-    public class Department
+    public class DepartmentCreateDto
     {
         public int DepartmentID { get; set; }
         [StringLength(maximumLength: 50, MinimumLength = 3)]
@@ -18,13 +18,8 @@ namespace ContosoUniversity.Models
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
 
-        [Timestamp]
-        public byte[] ConCurrencyToken { get; set; }
-
         public int? InstructorID { get; set; }
 
-        public Instructor Administrator { get; set; }
-
-        public ICollection<Course> Courses { get; set; }
+        public byte[] ConCurrencyToken { get; set; }
     }
 }
